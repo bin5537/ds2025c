@@ -1,10 +1,14 @@
-n = int(input("정수 입력: "))
+import random
 
-# result = 0
-# for i in range(1, n+1):
-#     result = result + i
+n_random = random.randrange(1, 100)
 
-result = n * (n + 1) // 2 # 0(1)
+for i in range(3):
+    answer = int(input("정수 입력: "))
 
-print(result)
-
+    if n_random == answer:
+        print("정답입니다.")
+        break
+    elif n_random > answer:
+        print("입력하신 수는 정답보다 작은 수 입니다.")
+    else:
+        print("입력하신 수는 정답보다 큰 수 입니다.")
