@@ -28,17 +28,15 @@ class LinkedList:
         return f"{target}은(는) 링크드 리스트에 존재하지 않습니다!"
 
     def remove(self, target):
-        if self.head.data == target:
+        current = self.head
+        if current.data == target:
             self.head = self.head.link
             return
-        current = self.head
         previous = None
         while current:
             if current.data == target:
                 previous.link = current.link
-            previous = current
-            current = current.link
-
+            previous, current = current, current.link
 
     def __str__(self):
         current = self.head
@@ -55,4 +53,4 @@ for _ in range(5):
 
 print("normal: ", a_list)
 a_list.remove(10)
-print("remove: ", a_list)
+print("remove(10): ", a_list)
