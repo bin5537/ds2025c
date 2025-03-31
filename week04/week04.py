@@ -11,20 +11,16 @@ class LinkedList:
         if not self.head:
             self.head = Node(data)
             return
-
         current = self.head
-
         while current.link:
             current = current.link
-
         current.link = Node(data)
 
     def __str__(self):
-        node = self.head
-
-        while node is not None:
-            print(node.data)
-            node = node.link
+        current = self.head
+        while current is not None:
+            print(current.data)
+            current = current.link
         return "end"
 
 a_list = LinkedList()
