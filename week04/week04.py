@@ -1,3 +1,5 @@
+import  random
+
 class Node:
     def __init__(self, data, link = None):
         self.data = data
@@ -35,9 +37,8 @@ class LinkedList:
         return out_texts + "end"
 
 a_list = LinkedList()
-a_list.append(8)
-a_list.append(4)
-a_list.append(-7)
+
+for _ in range(10):
+    a_list.append(random.randint(1, 30))
 print(a_list)
-print(a_list.search(99))
-print(a_list.search(8))
+print(a_list.search(10))
