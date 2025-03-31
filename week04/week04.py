@@ -18,10 +18,11 @@ class LinkedList:
 
     def __str__(self):
         current = self.head
+        out_texts = ""
         while current is not None:
-            print(current.data)
+            out_texts += str(current.data) + " -> "
             current = current.link
-        return "end"
+        return out_texts + "end"
 
 a_list = LinkedList()
 a_list.append(8)
