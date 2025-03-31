@@ -27,6 +27,18 @@ class LinkedList:
                 current = current.link
         return f"{target}은(는) 링크드 리스트에 존재하지 않습니다!"
 
+    def remove(self, target):
+        if self.head.data == target:
+            self.head = self.head.link
+            return
+        current = self.head
+        previous = None
+        while current:
+            if current.data == target:
+                previous.link = current.link
+            previous = current
+            current = current.link
+
 
     def __str__(self):
         current = self.head
@@ -38,7 +50,9 @@ class LinkedList:
 
 a_list = LinkedList()
 
-for _ in range(10):
-    a_list.append(random.randint(1, 30))
-print(a_list)
-print(a_list.search(10))
+for _ in range(5):
+    a_list.append(random.randint(1, 10))
+
+print("normal: ", a_list)
+a_list.remove(10)
+print("remove: ", a_list)
