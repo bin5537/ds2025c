@@ -31,6 +31,19 @@ def insert(root, value):
             current = current.right
     return root
 
+def search(root, value):
+    current = root
+    while current:
+        if value == current.data:
+            return True
+        elif value < current.data:
+            return False
+        else:
+            if current.right is None:
+                return False
+            current = current.data
+    return False
+
 if __name__ == "__main__":
     numbers = [10, 15, 8, 3, 9, 1, 7, 100, 20]
     root = None
@@ -43,16 +56,9 @@ if __name__ == "__main__":
     post_order(root)    # 3->9->8->15->10
 
     find_number = int(input())
-    current = root
-    while True:
-        if find_number == current.data:
-            print(f"{find_number}을(를) 찾았습니다.")
-            break
-        elif find_number < current.data:
-            print(f"{find_number}을(를) 못찾았습니다.")
-            break
-        else:
-            if current.right is None:
-                print(f"{find_number}을(를) 못찾았습니다.")
-                break
-            current = current.data
+    
+    if search(root, find_number):
+        print(f"{find_number}을(를) 찾았습니다.")
+    else:
+        print(f"{find_number}을(를) 못찾았습니다.")
+        
